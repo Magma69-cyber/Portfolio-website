@@ -1,8 +1,8 @@
-declare module "gsap-trial/SplitText" {
+declare module "gsap/SplitText" {
   export const SplitText: any;
 }
 
-declare module "gsap-trial/ScrollSmoother" {
+declare module "gsap/ScrollSmoother" {
   import type { Plugin } from "gsap";
   const ScrollSmoother: any;
   export { ScrollSmoother };
