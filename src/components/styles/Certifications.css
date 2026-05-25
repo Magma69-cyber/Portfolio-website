@@ -1,0 +1,97 @@
+.certifications-section {
+  margin: auto;
+  padding: 80px 0;
+  position: relative;
+  background-color: var(--backgroundColor);
+}
+
+.certifications-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.certifications-section h2 {
+  font-size: 60px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.certifications-summary {
+  max-width: 760px;
+  font-size: 18px;
+  color: #c6c6d0;
+  line-height: 1.9;
+}
+
+.certifications-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.certification-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 24px;
+  border: 1px solid rgba(94, 234, 212, 0.12);
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 18px;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.certification-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accentColor);
+}
+
+.cert-icon {
+  width: 56px;
+  height: 56px;
+  display: grid;
+  place-items: center;
+  border-radius: 16px;
+  color: #fff;
+  font-size: 26px;
+}
+
+.aws-bg {
+  background: linear-gradient(120deg, #ff9900 0%, #ffb347 100%);
+}
+
+.cisco-bg {
+  background: linear-gradient(120deg, #0097a7 0%, #4dd0e1 100%);
+}
+
+.microsoft-bg {
+  background: linear-gradient(120deg, #0078d4 0%, #00bcf2 100%);
+}
+
+.ecc-bg {
+  background: linear-gradient(120deg, #5e5ce6 0%, #81a1ff 100%);
+}
+
+.certification-card h4 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.certification-card p {
+  margin: 8px 0 0;
+  color: #c6c6d0;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+@media only screen and (max-width: 1100px) {
+  .certifications-grid {
+    grid-template-columns: repeat(2, minmax(200px, 1fr));
+  }
+}
+
+@media only screen and (max-width: 720px) {
+  .certifications-grid {
+    grid-template-columns: 1fr;
+  }
+}

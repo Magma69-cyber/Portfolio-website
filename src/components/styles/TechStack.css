@@ -1,0 +1,264 @@
+/* ── TechStack Section Override ── */
+.techstack {
+  padding: 90px 0 100px;
+  min-height: auto;
+  margin-top: 0;
+  background-color: var(--backgroundColor);
+}
+
+/* Override index.css absolute positioning on .techstack h2 */
+.techstack h2 {
+  position: static !important;
+  top: auto !important;
+  left: auto !important;
+  width: auto !important;
+}
+
+/* ── Container ── */
+.ts-container {
+  width: 1300px;
+  max-width: calc(100% - 80px);
+  margin: auto;
+}
+
+/* ── Header ── */
+.ts-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.ts-header h2 {
+  font-size: 70px;
+  font-weight: 500;
+  margin: 0 0 14px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  line-height: 1;
+}
+
+.ts-header h2 span {
+  color: var(--accentColor);
+}
+
+.ts-subtitle {
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 13px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin: 0;
+  font-weight: 300;
+}
+
+/* ── Grid ── */
+.ts-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+/* ── Card ── */
+.ts-card {
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 14px;
+  padding: 26px 22px;
+  backdrop-filter: blur(12px);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  animation: tsCardIn 0.6s ease forwards;
+}
+
+.ts-card:nth-child(1) {
+  animation-delay: 0.05s;
+}
+
+.ts-card:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.ts-card:nth-child(3) {
+  animation-delay: 0.25s;
+}
+
+.ts-card:nth-child(4) {
+  animation-delay: 0.35s;
+}
+
+@keyframes tsCardIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Top accent line */
+.ts-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--cat-color);
+  opacity: 0.9;
+  border-radius: 14px 14px 0 0;
+}
+
+/* Radial glow on hover */
+.ts-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, var(--cat-color) 0%, transparent 65%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.ts-card:hover {
+  border-color: var(--cat-color);
+  box-shadow: 0 0 35px var(--cat-shadow);
+  transform: translateY(-5px);
+}
+
+.ts-card:hover::after {
+  opacity: 0.06;
+}
+
+/* ── Card Header ── */
+.ts-card-header {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 20px;
+}
+
+.ts-card-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--cat-color);
+  box-shadow: 0 0 8px var(--cat-color);
+  flex-shrink: 0;
+}
+
+.ts-card-header h3 {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--cat-color);
+  margin: 0;
+}
+
+/* ── Skills List ── */
+.ts-skills {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+/* ── Individual Skill ── */
+.ts-skill-info {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 5px;
+}
+
+.ts-skill-img {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.ts-skill-emoji {
+  font-size: 14px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.ts-skill-name {
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.8);
+  flex: 1;
+}
+
+.ts-skill-level {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.28);
+  font-weight: 300;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Progress Bar ── */
+.ts-bar {
+  height: 2px;
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.ts-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--cat-color) 0%, color-mix(in srgb, var(--cat-color) 60%, white) 100%);
+  border-radius: 2px;
+  width: 0%;
+  transition: width 1.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 6px var(--cat-color);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1600px) {
+  .ts-header h2 {
+    font-size: 60px;
+  }
+
+  .ts-container {
+    width: 1100px;
+  }
+}
+
+@media (max-width: 1400px) {
+  .ts-container {
+    width: 860px;
+    max-width: calc(100% - 60px);
+  }
+
+  .ts-header h2 {
+    font-size: 50px;
+  }
+
+  .ts-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+}
+
+@media (max-width: 900px) {
+  .ts-container {
+    max-width: calc(100% - 40px);
+  }
+
+  .ts-header h2 {
+    font-size: 38px;
+  }
+
+  .ts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .techstack {
+    padding: 60px 0;
+  }
+}
