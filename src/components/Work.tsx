@@ -1,14 +1,14 @@
 import { useState, useCallback } from "react";
 import "./styles/Work.css";
 import WorkImage from "./WorkImage";
-import { MdArrowBack, MdArrowForward } from "react-icons/md";
+import { MdArrowBack, MdArrowForward, MdArrowOutward } from "react-icons/md";
 
 const projects = [
   {
     title: "Face Detection",
     category: "Computer Vision",
     tools: "Python, C, OpenCV, Image & Video Processing",
-    image: "/images/face-detection.png",
+    image: "",
     link: "https://github.com/Magma69-cyber/face-detection",
     description:
       "Implementations of face detection algorithms in C and Python using the OpenCV library. Detects faces in images and videos with cross-platform compatibility.",
@@ -38,7 +38,7 @@ const projects = [
     image: "/images/brute-force-simulator.jpg",
     link: "https://github.com/Magma69-cyber/Brute-Force-Arena-Attack-Simulation",
     description:
-      "A comprehensive educational cybersecurity platform for understanding password vulnerabilities, attack methodologies, and defense mechanisms through hands-on simulation.",
+      "⚡ BruteForce Arena: Password Attack Simulation Framework — A comprehensive educational cybersecurity platform for understanding password vulnerabilities, attack methodologies, and defense mechanisms through hands-on simulation.",
   },
 ];
 
@@ -121,11 +121,24 @@ const Work = () => {
                           <span className="tools-label">Tools & Features</span>
                           <p>{project.tools}</p>
                         </div>
+                        {project.link && (
+                          <a
+                            className="carousel-github-link"
+                            href={project.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            data-cursor="disable"
+                          >
+                            View on GitHub <MdArrowOutward style={{ marginLeft: 6, verticalAlign: "middle" }} />
+                          </a>
+                        )}
                       </div>
                     </div>
-                    <div className="carousel-image-wrapper">
-                      <WorkImage image={project.image} alt={project.title} link={project.link} />
-                    </div>
+                    {project.image && (
+                      <div className="carousel-image-wrapper">
+                        <WorkImage image={project.image} alt={project.title} link={project.link} />
+                      </div>
+                    )}
                   </div>
                 </div>
               ))}
